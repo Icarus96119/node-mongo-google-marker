@@ -76,7 +76,7 @@ function initMap() {
           $('#longitude').val(place.geometry.location.lng());
         });
         locations = response.data;
-        map = create_map(new google.maps.LatLng(-33, 151));
+        map = create_map(new google.maps.LatLng(51, 4));
         map.addListener('tilesloaded', function() {});
 
 
@@ -209,6 +209,7 @@ function create_map(center){
 
 /********************Draw Mark*******************/
 function drawMarker(map, infoWindow) {
+  markers = [];
   for (let i = 0; i < locations.length; i++) {
     const marker = new google.maps.Marker({
       position: new google.maps.LatLng(locations[i].latitude, locations[i].longitude),
@@ -390,8 +391,13 @@ function CustomControl(controlDiv, map) {
 
 
   google.maps.event.addDomListener(controlSearchUI, 'click', function () {
-    if (free_polygon) {
+    if(drawn_shape != null){
+      drawn_shape.overlay.setMap(null);
+      drawn_shape = null;
+    }
+    else if(free_polygon != null){
       free_polygon.setMap(null);
+      free_polygon = null;
     }
     var bounds = map.getBounds();
     let availableCount = 0;
