@@ -68,9 +68,17 @@ function initMap() {
     `${apiUrl}/get`,
     response => {
       if (response.success) {
+        const autocomplete = new google.maps.places.Autocomplete($('#address')[0], {});
+
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+          const place = autocomplete.getPlace();
+          $('#latitude').val(place.geometry.location.lat());
+          $('#longitude').val(place.geometry.location.lng());
+        });
         locations = response.data;
         map = create_map(new google.maps.LatLng(-33, 151));
         map.addListener('tilesloaded', function() {});
+
 
         //create drawing manager at top center
         const drawingManager = create_draw_manager();

@@ -10,6 +10,7 @@
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDocOTLnXB8Kgn46cZSKokpsVHpq6MTORE&libraries=places,drawing&callback=initMap"
     async defer></script>
+<!--  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>-->
   <script src="../assets/js/map.js"></script>
 </head>
 <body class="w-100 h-100">
@@ -21,13 +22,13 @@
       <div class="d-flex justify-content-center">
         <div class="w-100 p-5">
           <label for="name">Name:</label><br>
-          <input class="w-100" type="text" id="name" name="name"><br><br>
+          <input class="w-100" type="text" id="name" name="name" placeholder="Enter a name"><br><br>
           <label for="name">Latitude:</label><br>
-          <input class="w-100" type="number" id="latitude" name="latitude"><br><br>
+          <input class="w-100" type="number" id="latitude" name="latitude" placeholder="Enter a latitude"><br><br>
           <label for="name">Longitude:</label><br>
-          <input class="w-100" type="text" id="longitude" name="longitude"><br><br>
+          <input class="w-100" type="text" id="longitude" name="longitude" placeholder="Enter a longitude"><br><br>
           <label for="telephone">Telephone:</label><br>
-          <input class="w-100" type="text" id="telephone" name="telephone"><br><br>
+          <input class="w-100" type="text" id="telephone" name="telephone" placeholder="Enter a telephone"><br><br>
           <label for="address">Address:</label><br>
           <input class="w-100" type="text" id="address" name="address"><br><br>
           <button onclick="submit()">submit</button>
